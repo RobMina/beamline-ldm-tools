@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "g4numi-ldm-tools"
+version = "0.1.0"
+description = "Light-dark-matter tools around the g4numi NuMI beamline simulation: meson lists for BdNMC, absorber proton yields, and the g4numi vs MIPP pion-yield comparison"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = ["numpy", "uproot", "awkward", "matplotlib"]
+
+[project.optional-dependencies]
+pdf = ["pymupdf"]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["g4numi_ldm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

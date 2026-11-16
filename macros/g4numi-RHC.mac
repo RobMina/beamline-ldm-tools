@@ -1,0 +1,67 @@
+#This is an template macro to create ME G4numi files.
+#v1.1.2.7 of this file contains all of the ME defaults
+#as of 2017/11.
+#The "BeamConfig" option has been depreciated in the ME.
+#It can/should be used to change horn current but not
+# (not target Z position. Use targetPosition for that).
+
+/control/suppressAbortion 2
+/NuMI/run/DebugLevel 0
+/NuMI/run/useNuBeam true
+/NuMI/run/useNImpWeight true
+/NuMI/det/RunPeriod 0
+
+# see comment above
+/NuMI/det/BeamConfig me000z-200i
+
+#Beam spot size
+#ME nominal is 1.4 (B. Messerly 2017.06)
+/NuMI/Beam/SigmaX 1.4 mm
+/NuMI/Beam/SigmaY 1.4 mm
+
+#Beam position shift
+/NuMI/Beam/ShiftX 0 mm
+/NuMI/Beam/ShiftY 0 mm
+
+#Magnetic field in decay pipe
+#/NuMI/det/applyDecayPipeMagneticField false
+
+
+/NuMI/run/useWaterInTgt false
+/NuMI/det/LengthOfWaterInTgt 3 cm
+
+# 10/2016 default 0 0 -143.3 cm
+/NuMI/det/set/targetPosition 0.0 0.0 -143.3 cm
+
+
+#Switch to the alternate horn1
+/NuMI/det/Horn1IsAlternate true
+
+#Use refined definition of horn1
+/NuMI/det/Horn1IsRefined false
+
+/NuMI/det/HornWaterLayerThickness 1 mm
+
+/NuMI/det/UseCorrHornCurrent false
+
+# see NumiX meeting 08/2014 and minerva docdb 10512
+#/NuMI/det/set/horn1Position 0 0 3 cm
+/NuMI/det/set/horn1Position 0 0 3 cm
+/NuMI/det/set/horn2Position 0 0 1918.0 cm
+
+
+/NuMI/det/set/deltaOuterThickness 0.9525 cm
+/NuMI/det/set/duratekShift 4.5 m
+/NuMI/det/set/thblockShift 4.5 m
+
+/NuMI/det/set/bafflePosition 0 0 -380 cm
+/NuMI/det/set/baffleInnerRadius 6.5 mm
+
+/NuMI/output/outputNuNtuple true
+/NuMI/output/setNuNtupleFile g4numi_me000z200i_1.root
+
+/NuMI/det/update
+
+/NuMI/rndm/setRndmSeed 5
+/NuMI/run/setRunID 5
+/run/beamOn 1000000

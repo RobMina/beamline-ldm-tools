@@ -1,0 +1,10 @@
+g4numi-ldm-tools
+Copyright (c) 2026 the g4numi-ldm-tools contributors. Licensed under the MIT License (LICENSE).
+
+Third-party material:
+- macros/*.mac are g4numi run macros derived from the g4numi template macros
+  (https://github.com/NuSoftHEP/g4numi, MIT License, Copyright (c) 2025 Fermi National Accelerator Laboratory).
+- The absorber-plane and target positions in g4numi_ldm/mesons.py and mipp/mipp_common.py are taken from the
+  g4numi geometry code (same licence).
+- The MIPP measurement (J. M. Paley et al., Phys. Rev. D 90, 032001 (2014)) is not redistributed:
+  mipp/parse_mipp_table.py extracts its Table I from a copy of the paper the user supplies.
