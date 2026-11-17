@@ -6,6 +6,9 @@ NuMI beamline: turning g4numi's meson and z-plane outputs into the inputs of an 
 MIPP measurement. Nothing here is specific to one detector; a downstream detector's placement is a configuration
 input.
 
+The meson, z-plane, target-exit and shower-seed outputs these tools read are added to g4numi on the `ldm` branch of
+the fork [RobMina/g4numi](https://github.com/RobMina/g4numi/tree/ldm) (five commits on upstream `main_modern_g4`).
+
 ## In this repository
 
 | Path | What |
