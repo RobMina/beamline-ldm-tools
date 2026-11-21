@@ -44,10 +44,10 @@ M_PI0 = 0.1349768   # GeV
 M_ETA = 0.547862
 
 # Detector placement in the target-centred beam frame: from the configuration ($LDM_DETECTOR_CONFIG, see
-# g4numi_ldm/detector.py); the experiment's values are not in this repository.
+# beamline_ldm/detector.py); the experiment's values are not in this repository.
 import sys as _sys
 _sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from g4numi_ldm import detector as _det  # noqa: E402
+from beamline_ldm import detector as _det  # noqa: E402
 _cfg = _det.load()
 X0_NOVA = np.array(_cfg["frame"]["origin_m"], dtype=float)       # front-face centre, m
 ALPHA, BETA = float(_cfg["frame"]["pitch_rad"]), float(_cfg["frame"]["yaw_rad"])  # pitch, yaw (rad)
