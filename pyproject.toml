@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "beamline-ldm-tools"
-version = "0.2.0"
+version = "0.2.1"
 description = "Light-dark-matter tools for Geant4 beamline simulations (g4numi, g4lbnf): a portable Geant4 meson tally, meson lists for BdNMC with source-region splits, absorber proton yields, and the g4numi vs MIPP pion-yield comparison"
 readme = "README.md"
 requires-python = ">=3.9"

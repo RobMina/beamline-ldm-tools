@@ -52,7 +52,7 @@ TTree branches only.
 
 | Tree | Branches |
 |---|---|
-| `meson` | `px py pz E` [GeV], `x y z` [cm, global], `t` [ns], `weight`, `pdg`, `tgen` (same names and units as the g4numi `meson` tree), `evt`, `trk`, `ppdg` (parent PDG), `pE` [GeV], `proc`, `vol`, `mat` (ids into `names`) |
+| `meson` | `px py pz E` [GeV], `x y z` [cm, global], `t` [ns], `weight`, `pdg`, `tgen` (same names and units as the g4numi `meson` tree), `evt`, `trk`, `ppdg` (parent PDG), `pE` [GeV: the parent's total energy at the pre-step point of the step that made the meson, −1 if unknown], `proc`, `vol`, `mat` (ids into `names`) |
 | `meta` | `pots` (events in the run), `run`, `nmeson`, `physlist`, `commit` |
 | `names` | `id`, `kind` (0 creator process, 1 logical volume, 2 material), `name` |
 
@@ -63,6 +63,10 @@ TTree branches only.
 - A track whose step number is not 0 (a suspended, re-stacked track) is skipped, so nothing is counted twice.
 - Parent PDG and energy come from the tracking manager's current track: Geant4 stacks secondaries right after their
   parent's tracking ends, before deleting the parent. A mismatch in track id gives `ppdg = 0`.
+- `pE` is read from the pre-step point of the parent's last step, not the parent's current energy. By stacking time
+  that is the post-interaction value: the rest mass for a parent killed by its inelastic interaction (fixed in 0.2.1;
+  0.2.0 files carry it). It omits only the creating step's continuous loss. A meson made at an earlier step, by a
+  parent that survived its interaction, has no recorded step left and gets `pE = -1`.
 - Creation volume and material come from a private `G4Navigator`; the tracking navigator is never moved.
 - The tally draws no random numbers, so switching it on does not change the simulation. In g4lbnf, the same macro and
   seed gave identical meson files before and after the class was moved here (2,881 entries, 200 POT).
